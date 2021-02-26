@@ -12,7 +12,8 @@ from random import randint, choice
 
 import adventure_colussus.entities as entities
 
-
+# Import input functions
+from adventure_colussus.input_functions import get_input, print_text
 
 
 
@@ -22,14 +23,7 @@ import adventure_colussus.entities as entities
 
 #functions
 
-def get_input(string: str, valid_options: list) -> str:
-    """
-    Deals with error checking for inputs
-    """
-    while True:
-        user_input = input(string)
-        if user_input in valid_options:
-            return user_input
+
 
 
 def version_counter(filename="adventure_colussus_version_counter.dat"):
@@ -49,41 +43,10 @@ def version_counter(filename="adventure_colussus_version_counter.dat"):
 counter = version_counter()
 
 
-def print_text(text: str, sleep_time: float = 0.0) -> None:
-    """
-    Prints the text to the console character by character. RPG style.
-    """
-    for char in text:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.021)
-    if sleep_time != 0.0:
-        time.sleep(sleep_time)
 
 
-def save_character(save_name: str, character: Dict[str, Any]) -> None:
-    """
-    Saves the current character to a pickle database.
-    """
-    save_name_pickle = save_name + '.pickle'
-    print_text(' > Saving character\n', 1)
-    with open(save_name_pickle, 'wb') as f:
-        pickle.dump(character, f)
-        print_text(' > Character saved successfully')
 
 
-def load_character(load_name):
-    """
-    Loads the selected character from a pickle database.
-    """
-    load_name_pickle = load_name + '.pickle'
-    print_text(' > Loading character...\n', 1)
-    pickle_in = open(load_name_pickle, "rb")
-    character = pickle.load(pickle_in)
-    print_text(' > Character loaded successfully\n')
-    print_text(f"\n > Welcome back {character['name']}!!!\n", 0.5)
-    print_text('\n > Here are your stats from last time: \n', 0.5)
-    print(f' > {character} ')
 
 
 def character_generator():

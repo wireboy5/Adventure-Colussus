@@ -323,3 +323,32 @@ class Survivor():
         Non combatant humans to trade with or other 
     """
     pass
+
+
+
+"""
+Some backups of the original save and load character functions.
+def save_character(save_name: str, character: Dict[str, Any]) -> None:
+    \"""
+    Saves the current character to a pickle database.
+    \"""
+    save_name_pickle = save_name + '.pickle'
+    print_text(' > Saving character\n', 1)
+    with open(save_name_pickle, 'wb') as f:
+        pickle.dump(character, f)
+        print_text(' > Character saved successfully')
+
+
+def load_character(load_name):
+    \"""
+    Loads the selected character from a pickle database.
+    \"""
+    load_name_pickle = load_name + '.pickle'
+    print_text(' > Loading character...\n', 1)
+    pickle_in = open(load_name_pickle, "rb")
+    character = pickle.load(pickle_in)
+    print_text(' > Character loaded successfully\n')
+    print_text(f"\n > Welcome back {character['name']}!!!\n", 0.5)
+    print_text('\n > Here are your stats from last time: \n', 0.5)
+    print(f' > {character} ')
+"""
